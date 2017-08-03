@@ -22,12 +22,12 @@ public class ForumUser {
         //do nothing
     }
 
-    public int getPostQuantity(){
+    public int getPostsQuantity(){
         //temporarily return 100
         return 100;
     }
 
-    public int getCommentQuantity(){
+    public int getCommentsQuantity(){
         //temporarily return 100
         return 100;
     }
