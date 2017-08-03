@@ -14,7 +14,7 @@ public class ForumUser {
         this.realname = realname;
     }
 
-    public void addPost(String author, String postBody,){
+    public void addPost(String author, String postBody){
         //do nothing
     }
 
@@ -37,7 +37,7 @@ public class ForumUser {
         return null;
     }
 
-    public ForumComment getPost(int commentNumber){
+    public ForumComment getComment(int commentNumber){
         //temporarily return null
         return null;
     }

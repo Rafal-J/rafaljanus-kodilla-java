@@ -28,15 +28,14 @@ public class CollectionTestSuite {
     @Test
     public void testCaseWithNumbers()
     {
-        ArrayList testList = new ArrayList<Integer>();
+        ArrayList<Integer> testList = new ArrayList<Integer>();
 
         for(Integer i = 1; i < 10; i++)
         {
             testList.add(i);
         }
 
-        ArrayList result = new ArrayList<Integer>();
-        result = OddNumbersExterminator.exterminate(testList);
+        ArrayList<Integer> result = OddNumbersExterminator.exterminate(testList);
 
         ArrayList expected = new ArrayList<Integer>();
         expected.add(2);
