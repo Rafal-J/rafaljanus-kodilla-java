@@ -1,8 +1,5 @@
 package com.kodilla.testing.forum;
 
-/**
- * Created by RJanus on 03.08.2017.
- */
 public class ForumComment {
     ForumPost forumPost;
     String commentBody;
