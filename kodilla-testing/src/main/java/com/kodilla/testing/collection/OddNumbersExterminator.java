@@ -10,7 +10,7 @@ public class OddNumbersExterminator {
     {
         for(int i = 0; i < numbers.size(); i++)
         {
-            if((int)numbers.get(i)%2!=0)
+            if((numbers.get(i)%2!=0)
             {
                 numbers.remove(i);
             }
