@@ -49,12 +49,11 @@ public class CollectionTestSuite {
     @Test
     public void testCaseEmptyList()
     {
-        ArrayList testList = new ArrayList<Integer>();
+        ArrayList<Integer> testList = new ArrayList<Integer>();
 
-        ArrayList result = new ArrayList<Integer>();
-        result = OddNumbersExterminator.exterminate(testList);
+        ArrayList<Integer> result = OddNumbersExterminator.exterminate(testList);
 
-        ArrayList expected = new ArrayList<Integer>();
+        ArrayList<Integer> expected = new ArrayList<Integer>();
 
         Assert.assertEquals(expected,result);
     }

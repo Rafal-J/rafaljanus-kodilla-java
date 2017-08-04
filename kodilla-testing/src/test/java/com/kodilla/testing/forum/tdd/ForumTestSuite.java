@@ -26,7 +26,7 @@ public class ForumTestSuite {
 
     @Test
     public void testAddPost(){
-        ForumUser testUser = new ForumUser("rj";"Rafał Janus");
+        ForumUser testUser = new ForumUser("rj","Rafał Janus");
         testUser.addPost(testUser.getUsername(),"To jest mój pierwszy komentarz. Wow!");
 
         Assert.assertEquals(1,testUser.getPostsQuantity());
@@ -34,9 +34,9 @@ public class ForumTestSuite {
 
     @Test
     public void testAddComment(){
-        ForumUser testUser = new ForumUser("rj";"Rafał Janus");
+        ForumUser testUser = new ForumUser("rj","Rafał Janus");
         ForumPost testPost = new ForumPost("To jest mój pierwszy post. Wow!","rj");
-        ForumComment testComment new ForumComment(testPost,"Fajny post!","rj");
+        ForumComment testComment = new ForumComment(testPost,"Fajny post!","rj");
 
         Assert.assertEquals(1,testUser.getCommentsQuantity());
     }
