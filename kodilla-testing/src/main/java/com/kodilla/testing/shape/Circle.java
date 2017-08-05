@@ -7,9 +7,9 @@ public class Circle implements Shape {
     public String shapeName;
     public double field;
 
-    public Circle(String figureName, double figureField) {
+    public Circle(String figureName, double radius) {
         this.shapeName = figureName;
-        this.field = figureField;
+        this.field = 3.14*radius*radius;
     }
 
     public String getShapeName() {

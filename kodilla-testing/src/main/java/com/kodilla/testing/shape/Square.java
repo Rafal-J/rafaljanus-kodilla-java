@@ -4,9 +4,9 @@ public class Square implements Shape {
     public String shapeName;
     public double field;
 
-    public Square(String figureName, double figureField) {
+    public Square(String figureName, double side) {
         this.shapeName = figureName;
-        this.field = figureField;
+        this.field = side*side;
     }
 
     public String getShapeName() {
