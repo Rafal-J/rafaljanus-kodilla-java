@@ -8,31 +8,29 @@ import java.util.ArrayList;
 public class ShapeCollector {
     public ArrayList<Shape> shapes = new ArrayList<>();
 
-    public void addShape(Shape shape){
+    public void addShape(Shape shape) {
         shapes.add(shape);
     }
 
-    public void removeShape(Shape shape){
-        if(shapes.size() > 0 && shapes.contains(shape) == true){
+    public void removeShape(Shape shape) {
+        if (shapes.size() > 0 && shapes.contains(shape) == true) {
             shapes.remove(shape);
         }
     }
 
-    public Shape getShapeFromList(int i){
-        if(shapes.size() > 0 && i < shapes.size()) {
+    public Shape getShapeFromList(int i) {
+        if (shapes.size() > 0 && i < shapes.size()) {
             return shapes.get(i);
         }
         return null;
     }
 
-    public String printWholeList(){
+    public String printWholeList() {
         String wholeList = "";
-        if(shapes.size() > 0) {
-            for (int i = 0; i < shapes.size(); i++) {
-                wholeList = wholeList + "Shape: " + shapes.get(i).getShapeName() + ". Field: " + shapes.get(i).getField() + ".";
-                if(i < shapes.size()-1){
-                    wholeList = wholeList + "\n";
-                }
+        for (int i = 0; i < shapes.size(); i++) {
+            wholeList = wholeList + "Shape: " + shapes.get(i).getShapeName() + ". Field: " + shapes.get(i).getField() + ".";
+            if (i < shapes.size() - 1) {
+                wholeList = wholeList + "\n";
             }
         }
         return wholeList;
