@@ -9,21 +9,32 @@ public class ShapeCollector {
     public ArrayList<Shape> shapes = new ArrayList<>();
 
     public void addShape(Shape shape){
-        //do nothing
+        shapes.add(shape);
     }
 
-    public boolean removeShape(Shape shape){
-        //temporarily return true
-        return true;
+    public void removeShape(Shape shape){
+        if(shapes.size() > 0 && shapes.contains(shape) == true){
+            shapes.remove(shape);
+        }
     }
 
     public Shape getShapeFromList(int i){
-        //temporarily return null
+        if(shapes.size() > 0 && i < shapes.size()) {
+            return shapes.get(i);
+        }
         return null;
     }
 
     public String printWholeList(){
-        //temporarily return test
-        return "test";
+        String wholeList = "";
+        if(shapes.size() > 0) {
+            for (int i = 0; i < shapes.size(); i++) {
+                wholeList = wholeList + "Shape: " + shapes.get(i).getShapeName() + ". Field: " + shapes.get(i).getField() + ".";
+                if(i < shapes.size()-1){
+                    wholeList = wholeList + "\n";
+                }
+            }
+        }
+        return wholeList;
     }
 }
