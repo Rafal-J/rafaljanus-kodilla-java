@@ -22,7 +22,8 @@ public class ShapeCollector {
         return null;
     }
 
-    public void printWholeList(){
-        //do nothing
+    public String printWholeList(){
+        //temporarily return test
+        return "test";
     }
 }
