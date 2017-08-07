@@ -21,7 +21,7 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put(3, 25.2);
         temperaturesMap.put(4, 26.1);
 
-        when(temperaturesMock.getTemperatures().thenReturn(temperaturesMap);
+        //when(temperaturesMock.getTemperatures().thenReturn(temperaturesMap));
 
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 

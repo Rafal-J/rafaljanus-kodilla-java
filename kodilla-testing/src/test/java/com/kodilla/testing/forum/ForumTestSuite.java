@@ -10,17 +10,17 @@ public class ForumTestSuite {
     }
 
     @After
-    public void after(){
+    public static void after(){
         System.out.println("Przypadek testowy: koniec");
     }
 
     @BeforeClass
-    public static void beforeClass(){
+    public static void  beforeClass(){
         System.out.println("Zestaw testów: początek");
     }
 
     @AfterClass
-    public static void afterClass(){
+    public void afterClass(){
         System.out.println("Zestaw testów: koniec");
     }
     @Test
