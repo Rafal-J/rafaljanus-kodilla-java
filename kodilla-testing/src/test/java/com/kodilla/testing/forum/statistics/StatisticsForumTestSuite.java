@@ -37,6 +37,7 @@ public class StatisticsForumTestSuite {
 
         comments = 0;
         testCalculation.calculateAdvStatistics(testStatistics);
+
         Assert.assertEquals(2,testCalculation.averageUserComments,0.001);
         Assert.assertEquals(0.2,testCalculation.averageCommentsOnPosts,0.001);
 
