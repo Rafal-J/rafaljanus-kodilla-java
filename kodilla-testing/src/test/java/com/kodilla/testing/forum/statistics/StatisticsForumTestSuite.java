@@ -21,7 +21,7 @@ public class StatisticsForumTestSuite {
             testUsersNames.add(userName);
         }
         int posts = 1000;
-        int comments = 0;
+        int comments = 200;
 
         when(testStatistics.usersNames()).thenReturn(testUsersNames);
         when(testStatistics.postsCount()).thenReturn(posts);
@@ -33,16 +33,18 @@ public class StatisticsForumTestSuite {
         testCalculation.showStatistics();
 
         Assert.assertEquals(10,testCalculation.averageUserPosts,0.001);
-        Assert.assertEquals(0,testCalculation.averageUserComments,0.001);
+        Assert.assertEquals(2,testCalculation.averageUserComments,0.001);
+
+        comments = 0;
+        testCalculation.calculateAdvStatistics(testStatistics);
+        Assert.assertEquals(2,testCalculation.averageUserComments,0.001);
+        Assert.assertEquals(0.2,testCalculation.averageCommentsOnPosts,0.001);
 
         testUsersNames.clear();
+        testCalculation.calculateAdvStatistics(testStatistics);
+        testCalculation.showStatistics();
 
-        when(testStatistics.usersNames()).thenReturn(testUsersNames);
-
-        Assert.assertEquals(10,testCalculation.averageUserPosts,0.001);
+        Assert.assertEquals(0,testCalculation.averageUserPosts,0.001);
         Assert.assertEquals(0,testCalculation.averageUserComments,0.001);
-
-
-
     }
 }
