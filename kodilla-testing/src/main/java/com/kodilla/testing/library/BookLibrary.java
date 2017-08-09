@@ -20,6 +20,8 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-        return null;
+        List<Book> borrowedBook = libraryDatabase.listBooksInHandsOf(libraryUser);
+        borrowedBook.add(new Book("Blablabla", "Jan Kowalski", 1971));
+        return borrowedBook;
     }
 }
