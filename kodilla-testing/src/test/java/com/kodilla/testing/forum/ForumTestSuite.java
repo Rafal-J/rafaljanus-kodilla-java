@@ -10,7 +10,7 @@ public class ForumTestSuite {
     }
 
     @After
-    public static void after(){
+    public void after(){
         System.out.println("Przypadek testowy: koniec");
     }
 
@@ -20,7 +20,7 @@ public class ForumTestSuite {
     }
 
     @AfterClass
-    public void afterClass(){
+    public static void afterClass(){
         System.out.println("Zestaw testów: koniec");
     }
     @Test
