@@ -1,16 +1,16 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.lambda.Processor;
+import com.kodilla.stream.beautifier.PoemBeautifier;
+
 
 public class StreamMain {
     public static void main(String[] args) {
 
-        Processor processor = new Processor();
-        processor.execute(() -> System.out.println("This is an example text."));
-
-        ExpressionExecutor calculate = new ExpressionExecutor();
-        calculate.executeExpression(5.2,3, (a, b) -> a + b);
+        PoemBeautifier poemToBeutify = new PoemBeautifier();
+        String poem1 = "Ala ma kota.";
+        poemToBeutify.beautify("Ala ma kota.", (poem2) -> poem2 + "\nWlazł kotek na płotek" );
+        poemToBeutify.beautify(poem1, (poem2) -> poem2.toUpperCase());
+        poemToBeutify.beautify(poem1, (poem2) -> poem2.replace("Ala","Zosia"));
+        poemToBeutify.beautify(poem1, (poem2) -> poem2.substring(0,3));
     }
 }
