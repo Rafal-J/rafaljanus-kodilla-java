@@ -20,6 +20,6 @@ private final List<ForumUser> userList = new ArrayList<>();
     }
 
     public List<ForumUser> getUserList() {
-        return new ArrayList<>(userList);
+        return userList;
     }
 }
