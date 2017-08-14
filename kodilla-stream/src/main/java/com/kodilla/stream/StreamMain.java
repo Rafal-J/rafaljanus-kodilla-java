@@ -27,5 +27,6 @@ public class StreamMain {
         sandQuantity.setScale(5,3);
         System.out.println(sandQuantity.scale());
         //for(BigDecimal i = sandQuantity; i < BigDecimal.ONE; i.subtract(1))
+
     }
 }
