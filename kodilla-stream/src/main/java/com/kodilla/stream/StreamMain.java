@@ -9,6 +9,12 @@ import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
+        int k = 0;
+        BigDecimal a = new BigDecimal("1000");
+        for(BigDecimal i = new BigDecimal("0"); i.compareTo(a) < 0; i = i.add(BigDecimal.ONE)) {
+        k = k + 1;
+        System.out.println(i + " " + k);
+        }
 
         Forum newForum = new Forum();
         Map<Integer,ForumUser> userMap = newForum.getUserList().stream()
