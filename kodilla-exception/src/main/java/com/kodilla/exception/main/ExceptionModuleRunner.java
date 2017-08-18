@@ -2,11 +2,10 @@ package com.kodilla.exception.main;
 
 import com.kodilla.exception.io.FileReader;
 
-/**
- * Created by RJanus on 17.08.2017.
- */
+import java.io.IOException;
+
 public class ExceptionModuleRunner {
-    public static void main (String args[]){
+    public static void main (String args[]) throws IOException {
         FileReader fileReader = new FileReader();
         fileReader.readfile();
     }
