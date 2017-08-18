@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class FileReader {
-    public void readfile() throws IOException {
+    public void readfile() throws FileReaderException {
         ClassLoader classLoader = getClass().getClassLoader();
         File myFile = new File(classLoader.getResource("file/names.txt").getFile());
 
@@ -17,7 +17,7 @@ public class FileReader {
             linesFromMyFile.forEach(c -> System.out.println(c));
         }
         catch (IOException e) {
-            System.out.println("Coś poszło nie tak :( " + e);
+           throw new FileReaderException();
         } finally{
             System.out.println("Ten napis pojawi się zawsze");
         }
