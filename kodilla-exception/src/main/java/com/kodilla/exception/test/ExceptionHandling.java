@@ -3,14 +3,13 @@ package com.kodilla.exception.test;
 public class ExceptionHandling {
     public static void main(String args[]) {
         SecondChallenge secondChallenge = new SecondChallenge();
+        String result = "";
         try {
-            String result = secondChallenge.probablyIWillThrowException(1, 2);
-            System.out.println(result);
-        } catch (Exception d) {
+            result = secondChallenge.probablyIWillThrowException(1, 1.5);
+            } catch (Exception d) {
             System.out.println("Wystąpił błąd!");
         } finally {
-            System.out.println("Koniec programu!");
-            //System.out.println(result);
+            System.out.println(result);
         }
     }
 }
