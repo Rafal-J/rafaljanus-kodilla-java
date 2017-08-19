@@ -5,7 +5,7 @@ package com.kodilla.exception.test;
  */
 public class RouteHandling {
     public static void  main(String args[]){
-        Flight destination = new Flight ("Katowice");
+        Flight destination = null;
         try{
             //Flight requestedConnection = new Flight("Warszawa");
             if(FlightSearchEngine.findFlight(destination)){
@@ -15,7 +15,7 @@ public class RouteHandling {
                 System.out.println("Połącznie z " + destination.getAirportName() + " jest niedostępne");
             }
         }catch(RouteNotFoundException e) {
-            System.out.println("Wyjątek! Nie znaleziono poszukiwanej lokalizacji");
+            System.out.println("Wyjątek! Nie znaleziono poszukiwanej lokalizacji.");
         }
     }
 }

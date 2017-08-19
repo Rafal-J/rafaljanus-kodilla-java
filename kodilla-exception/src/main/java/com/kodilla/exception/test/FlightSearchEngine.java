@@ -5,7 +5,7 @@ import java.util.*;
 public class FlightSearchEngine {
     public static boolean findFlight(Flight flight) throws RouteNotFoundException{
         HashMap<String, Boolean> connections = new HashMap<String, Boolean>();
-        connections.put("Warszawa",true);
+        connections.put("Warszawa",null);
         connections.put("Kraków",true);
         connections.put("Radom",false);
         connections.put("Olsztyn",false);
@@ -13,8 +13,15 @@ public class FlightSearchEngine {
         connections.put("Białystok",false);
 
         try {
-            boolean isConnection = connections.get(flight.getAirportName());
+            //boolean isConnection = connections.get(flight.getAirportName());
+            //return isConnection;
+
+            Boolean isConnection = connections.get(flight.getAirportName());
+            if (isConnection == null) {
+                throw new RouteNotFoundException();
+            }
             return isConnection;
+
         }catch(NullPointerException z){
             throw new RouteNotFoundException();
         }
