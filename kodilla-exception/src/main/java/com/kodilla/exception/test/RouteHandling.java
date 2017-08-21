@@ -5,7 +5,7 @@ package com.kodilla.exception.test;
  */
 public class RouteHandling {
     public static void  main(String args[]){
-        Flight destination = null;
+        Flight destination = new Flight("Warsaw");
         try{
             //Flight requestedConnection = new Flight("Warszawa");
             if(FlightSearchEngine.findFlight(destination)){
