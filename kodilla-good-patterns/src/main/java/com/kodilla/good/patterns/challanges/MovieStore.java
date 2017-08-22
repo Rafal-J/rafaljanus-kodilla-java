@@ -21,11 +21,11 @@ public class MovieStore {
         flashTranslations.add("Błyskawica");
         flashTranslations.add("Flash");
 
-        ArrayList<List<String>> booksTitlesWithTranslations = new ArrayList<>();
-        booksTitlesWithTranslations.add(ironManTranslations);
-        booksTitlesWithTranslations.add(avengersTranslations);
-        booksTitlesWithTranslations.add(flashTranslations);
+        ArrayList<List<String>> moviesTitlesWithTranslations = new ArrayList<>();
+        moviesTitlesWithTranslations.add(ironManTranslations);
+        moviesTitlesWithTranslations.add(avengersTranslations);
+        moviesTitlesWithTranslations.add(flashTranslations);
 
-        return booksTitlesWithTranslations;
+        return moviesTitlesWithTranslations;
     }
 }
