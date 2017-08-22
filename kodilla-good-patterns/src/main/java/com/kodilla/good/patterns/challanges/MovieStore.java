@@ -4,7 +4,7 @@ import java.util.*;
 
 public class MovieStore {
 
-    public ArrayList<List<String>> getMovies() {
+    public static ArrayList<List<String>> getMovies() {
 
         ArrayList<List<String>> moviesTitlesWithTranslations = new ArrayList<>();
         moviesTitlesWithTranslations.add(new ArrayList<String>(Arrays.asList("Żelazny Człowiek","Iron Man")));
