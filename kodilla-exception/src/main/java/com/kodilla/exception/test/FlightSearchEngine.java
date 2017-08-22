@@ -12,20 +12,13 @@ public class FlightSearchEngine {
         connections.put("Gdańsk",true);
         connections.put("Białystok",false);
 
-        try {
-            //boolean isConnection = connections.get(flight.getAirportName());
-            //return isConnection;
+
 
             Boolean isConnection = connections.get(flight.getAirportName());
             if (isConnection == null) {
                 throw new RouteNotFoundException();
             }
             return isConnection;
-
-        }catch(NullPointerException z){
-            throw new RouteNotFoundException();
-        }
-
 
     }
 }
