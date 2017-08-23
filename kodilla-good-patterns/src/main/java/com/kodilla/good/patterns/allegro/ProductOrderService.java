@@ -6,7 +6,7 @@ public class ProductOrderService {
     private OrderService orderService;
     private OrderRepository orderRepository;
 
-    public ProductOrderService(final InformationService informationService,
+    public ProductOrderService(final EmailSender emailSender,
                            final OrderService orderService,
                            final OrderRepository OrderRepository) {
         this.informationService = informationService;
@@ -19,7 +19,7 @@ public class ProductOrderService {
 
         if(isSold) {
             informationService.sentMessageToBuyer(order.getBuyer(),"Kupiłeś przedmiot");
-            informationService.sentMessageToBuyer(order.getSeller(),"Sprzedałeś przedmiot");
+            informationService.sentMessageToSeller(order.getSeller(),"Sprzedałeś przedmiot");
             orderRepository.writeOrderToDB (order.getBuyer(),order.getSeller(),order.getItem(),order.getPrice(),order.getAmount());
             return new OrderDto(order.getBuyer(),order.getSeller(), true);
         } else {
