@@ -15,12 +15,13 @@ public class ProductOrderService {
     }
 
     public OrderDto process(final Order order) {
-        boolean isSold = orderService.validateOrder(order.getBuyer(),order.getSeller(),order.getItem(),order.getPrice(),order.getAmount());
+
+        boolean isSold = orderService.validateOrder(order.getBuyer(), order.getSeller(), order.getItem(), order.getPrice(), order.getAmount());
 
         if(isSold) {
             informationService.sentMessageToBuyer(order.getBuyer(),"Kupiłeś przedmiot");
             informationService.sentMessageToSeller(order.getSeller(),"Sprzedałeś przedmiot");
-            orderRepository.writeOrderToDB (order.getBuyer(),order.getSeller(),order.getItem(),order.getPrice(),order.getAmount());
+            orderRepository.writeOrderToDB(order.getBuyer(), order.getSeller(), order.getItem(), order.getPrice(), order.getAmount());
             return new OrderDto(order.getBuyer(),order.getSeller(), true);
         } else {
              informationService.sentMessageToBuyer(order.getBuyer(),"Dane niekompletne");

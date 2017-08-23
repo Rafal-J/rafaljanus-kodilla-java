@@ -5,7 +5,7 @@ package com.kodilla.good.patterns.allegro;
  */
 public class OrderDB implements OrderRepository {
     public void writeOrderToDB(User buyer, User seller, String item, double price, int amount){
-        System.out.println("Zamówienie użytkownika " + buyer.getUserRealname() + " zostało zapisane");
+        //System.out.println("Zamówienie użytkownika " + buyer.getUserRealname() + " zostało zapisane");
     }
 
 }
