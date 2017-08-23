@@ -6,9 +6,14 @@ package com.kodilla.good.patterns.fooddelivery;
 public class OrderPreparation {
     public static Order newOrder(){
         Client newClient = new Client("Kowal", "Jan Kowal", 0.05);
-        Vendor newVendor = new Vendor("ExtraFoodShop");
+
+        VendorsList vendorsList = new VendorsList();
+        VendorsListPreparation.preparingList(vendorsList);
+
+        Vendor newVendor = vendorsList.getVendorsList().get(2);
+
         Item newItem = new Item("Marchewki",2.5);
-        Order newOrder = new Order(newClient,newVendor,newItem,205);
+        Order newOrder = new Order(newClient,newVendor,newItem,225);
         return newOrder;
     }
 }
