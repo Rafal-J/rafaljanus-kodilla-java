@@ -10,7 +10,7 @@ public class Application {
 
         Order order = new Order(buyer, seller, "Latarka",20.5,2);
 
-        ProductOrderService processNewOrder = ProductOrderService(new InformationService, new OrderService, new OrderRepository();
+        ProductOrderService processNewOrder = ProductOrderService(new InformationService(), new OrderService(), new OrderRepository());
         processNewOrder.process(order);
 
     }
