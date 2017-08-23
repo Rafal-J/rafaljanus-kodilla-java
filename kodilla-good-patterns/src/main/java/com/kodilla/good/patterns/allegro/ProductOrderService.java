@@ -8,7 +8,7 @@ public class ProductOrderService {
 
     public ProductOrderService(final InformationService informationService,
                            final OrderService orderService,
-                           final OrderRepository OrderRepository) {
+                           final OrderRepository orderRepository) {
         this.informationService = informationService;
         this.orderService = orderService;
         this.orderRepository = orderRepository;
