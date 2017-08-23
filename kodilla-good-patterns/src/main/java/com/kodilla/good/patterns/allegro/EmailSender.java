@@ -5,11 +5,11 @@ package com.kodilla.good.patterns.allegro;
  */
 public class EmailSender implements InformationService {
     public void sentMessageToBuyer(User buyer,String messageBody){
-        System.out.println("Drogi " + buyer + ". " + messageBody);
+        System.out.println("Drogi " + buyer.getUserRealname() + ". " + messageBody);
     }
 
     public void sentMessageToSeller(User seller,String messageBody){
-        System.out.println("Drogi " + seller + ". " + messageBody);
+        System.out.println("Drogi " + seller.getUserRealname() + ". " + messageBody);
     }
 
 }

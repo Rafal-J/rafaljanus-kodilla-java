@@ -1,8 +1,5 @@
 package com.kodilla.good.patterns.allegro;
 
-/**
- * Created by RJanus on 22.08.2017.
- */
 public class Application {
     public static void main(String[] args){
         User seller = new User("Kowal","Piotr Kowalski");
@@ -10,7 +7,7 @@ public class Application {
 
         Order order = new Order(buyer, seller, "Latarka",20.5,2);
 
-        ProductOrderService processNewOrder = ProductOrderService(new EmailSender(), new OrderService(), new OrderRepository());
+        ProductOrderService processNewOrder = new ProductOrderService(new EmailSender(), new OrderValidator(), new OrderDB());
         processNewOrder.process(order);
 
     }
