@@ -15,6 +15,9 @@ public class OrderProcessor {
 
     public boolean processOrder(final Order order){
 
+        boolean isItemAvailable = vendorSpecificOrderProcessor.process(order.getItem(), order.getAmount());
+
+        /*
         boolean isItemAvailable = true;
 
         if(order.getVendor().getVendorName().equals("Healthy Shop")) {
@@ -29,6 +32,7 @@ public class OrderProcessor {
             GlutenFreeShopOrderValidator test = new GlutenFreeShopOrderValidator();
             isItemAvailable = test.process(order.getItem(), order.getAmount());
         }
+        */
 
         if(isItemAvailable){
             clientInformationServices.sentMessage(order.getClient(),true);

@@ -13,7 +13,7 @@ public class OrderPreparation {
         Vendor newVendor = vendorsList.getVendorsList().get(2);
 
         Item newItem = new Item("Marchewki",2.5);
-        Order newOrder = new Order(newClient,newVendor,newItem,225);
+        Order newOrder = new Order(newClient, newVendor, newItem,250);
         return newOrder;
     }
 }

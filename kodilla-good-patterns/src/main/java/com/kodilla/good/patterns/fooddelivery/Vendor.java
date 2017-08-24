@@ -1,21 +1,24 @@
 package com.kodilla.good.patterns.fooddelivery;
 
-/**
- * Created by RJanus on 23.08.2017.
- */
 public class Vendor {
     private final String vendorName;
     private final String vendorCity;
     private final String NIP;
+    private VendorSpecificOrderProcessor vendorSpecificOrderProcessor;
 
-    public Vendor(String vendorName, String vendorCity, String NIP) {
+    public Vendor(String vendorName, String vendorCity, String NIP, VendorSpecificOrderProcessor vendorSpecificOrderProcessor) {
         this.vendorName = vendorName;
         this.vendorCity = vendorCity;
         this.NIP = NIP;
+        this.vendorSpecificOrderProcessor = vendorSpecificOrderProcessor;
     }
 
     public String getVendorName() {
         return vendorName;
+    }
+
+    public VendorSpecificOrderProcessor getVendorSpecificOrderProcessor() {
+        return vendorSpecificOrderProcessor;
     }
 
     public String getVendorCity() {
