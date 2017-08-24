@@ -7,7 +7,7 @@ public class Application {
     public static void main(String[] args){
         Order newOrder = OrderPreparation.newOrder();
 
-        OrderProcessor orderProcessor = new OrderProcessor(new ClientEmailSender(), new VendorEmailSender(), new WriteToDB(), newOrder.getVendor().getVendorSpecificOrderProcessor());
+        OrderProcessor orderProcessor = new OrderProcessor(new ClientEmailSender(), new VendorEmailSender(), new WriteToDB());
         boolean processOrder = orderProcessor.processOrder(newOrder);
 
     }
