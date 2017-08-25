@@ -4,29 +4,27 @@ import java.util.HashSet;
 
 public class ConnectionsMapGenerator {
 
-    HashSet<Connection> connectionsMap = new HashSet<Connection>();
+    public static HashSet<Connection> generatingConnectionsMap (){
+        HashSet<Connection> connectionsMap = new HashSet<Connection>();
 
-    public ConnectionsMapGenerator (){
-        this.connectionsMap.add(new Connection("Warszawa", "Kraków"));
-        this.connectionsMap.add(new Connection("Warszawa", "Gdańsk"));
-        this.connectionsMap.add(new Connection("Warszawa", "Rzeszów"));
-        this.connectionsMap.add(new Connection("Warszawa", "Szczecin"));
+        connectionsMap.add(new Connection("Warszawa", "Kraków"));
+        connectionsMap.add(new Connection("Warszawa", "Gdańsk"));
+        connectionsMap.add(new Connection("Warszawa", "Rzeszów"));
+        connectionsMap.add(new Connection("Warszawa", "Szczecin"));
 
-        this.connectionsMap.add(new Connection("Kraków", "Warszawa"));
-        this.connectionsMap.add(new Connection("Kraków", "Gdańsk"));
-        this.connectionsMap.add(new Connection("Kraków", "Szczecin"));
+        connectionsMap.add(new Connection("Kraków", "Warszawa"));
+        connectionsMap.add(new Connection("Kraków", "Gdańsk"));
+        connectionsMap.add(new Connection("Kraków", "Szczecin"));
 
-        this.connectionsMap.add(new Connection("Gdańsk", "Warszawa"));
-        this.connectionsMap.add(new Connection("Gdańsk", "Kraków"));
+        connectionsMap.add(new Connection("Gdańsk", "Warszawa"));
+        connectionsMap.add(new Connection("Gdańsk", "Kraków"));
 
-        this.connectionsMap.add(new Connection("Szczecin", "Warszawa"));
-        this.connectionsMap.add(new Connection("Szczecin", "Kraków"));
+        connectionsMap.add(new Connection("Szczecin", "Warszawa"));
+        connectionsMap.add(new Connection("Szczecin", "Kraków"));
 
-        this.connectionsMap.add(new Connection("Rzeszów", "Warszawa"));
-        this.connectionsMap.add(new Connection("Rzeszów", "Gdańsk"));
-    }
+        connectionsMap.add(new Connection("Rzeszów", "Warszawa"));
+        connectionsMap.add(new Connection("Rzeszów", "Gdańsk"));
 
-    public HashSet<Connection> getConnectionsMap() {
         return connectionsMap;
     }
 }

@@ -1,11 +1,12 @@
 package com.kodilla.good.patterns.airways;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Application {
     public static void main (String[] args){
-        ConnectionsMapGenerator connectionsMap = new ConnectionsMapGenerator();
+        HashSet<Connection> connectionsMap = ConnectionsMapGenerator.generatingConnectionsMap();
 
         List<Connection> connectionsFrom = ConnectionsFrom.findConnectionsFrom(connectionsMap, "Kraków");
         PrintConnections.printingConnections(connectionsFrom);

@@ -1,11 +1,12 @@
 package com.kodilla.good.patterns.airways;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class OneHopConnections {
 
-    public static ArrayList<ArrayList<Connection>> findOneHopConnections(ConnectionsMapGenerator connectionsMap, Connection connection){
+    public static ArrayList<ArrayList<Connection>> findOneHopConnections(HashSet<Connection> connectionsMap, Connection connection){
         List<Connection> connectionsFrom = ConnectionsFrom.findConnectionsFrom(connectionsMap, connection.getSource());
 
         List<Connection> connectionsTo = ConnectionsTo.findConnectionsTo(connectionsMap, connection.getDestination());
