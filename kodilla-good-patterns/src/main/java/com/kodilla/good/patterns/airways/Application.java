@@ -15,7 +15,7 @@ public class Application {
         PrintConnections.printingConnections(connectionsTo);
 
         Connection requestedConnection = new Connection("Rzeszów", "Kraków");
-        ArrayList<ArrayList<Connection>> connectionsWithOneHop = OneHopConnections.findOneHopConnections(connectionsMap, requestedConnection);
+        ArrayList<OneHopRoute> connectionsWithOneHop = OneHopConnections.findOneHopConnections(connectionsMap, requestedConnection);
         PrintConnections.printingConnectionsWithOneHop(connectionsWithOneHop);
     }
 }

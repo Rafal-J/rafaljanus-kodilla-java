@@ -15,19 +15,19 @@ public class PrintConnections {
         System.out.println();
     }
 
-    public static void printingConnectionsWithOneHop(ArrayList<ArrayList<Connection>> connectionsWihtOneHop){
+    public static void printingConnectionsWithOneHop(ArrayList<OneHopRoute> connectionsWihtOneHop){
         if(connectionsWihtOneHop == null || connectionsWihtOneHop.size()==0) {
             System.out.println("Brak połączeń z 1 przesiadką");
             return;
         }
 
-        System.out.println("Z " + connectionsWihtOneHop.get(0).get(0).getSource() + " do " + connectionsWihtOneHop.get(0).get(1).getDestination()
+        System.out.println("Z " + connectionsWihtOneHop.get(0).getFirstHop().getSource() + " do " + connectionsWihtOneHop.get(1).getSecondHop().getDestination()
          + " możliwe są następujące połączenia z 1 przesiadką:");
 
 
         for(int i = 0; i < connectionsWihtOneHop.size(); i++){
-            System.out.println("1. " + connectionsWihtOneHop.get(i).get(0).getSource()+ " -> " + connectionsWihtOneHop.get(i).get(0).getDestination());
-            System.out.println("2. " + connectionsWihtOneHop.get(i).get(1).getSource()+ " -> " + connectionsWihtOneHop.get(i).get(1).getDestination());
+            System.out.println("1. " + connectionsWihtOneHop.get(i).getFirstHop().getSource()+ " -> " + connectionsWihtOneHop.get(i).getFirstHop().getDestination());
+            System.out.println("2. " + connectionsWihtOneHop.get(i).getSecondHop().getSource()+ " -> " + connectionsWihtOneHop.get(i).getSecondHop().getDestination());
             System.out.println("-------------------------");
         }
     }
