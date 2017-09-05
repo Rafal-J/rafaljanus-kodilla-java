@@ -27,7 +27,7 @@ public class LibraryTestSuite {
 
         try {
             library2 = library1.shallowCopy();
-            library2.name = new String("Moja perfekcyjna bibloteczka 2");
+            library2.name = "Moja perfekcyjna bibloteczka 2";
         }
         catch(CloneNotSupportedException o){
             o.printStackTrace();
@@ -35,7 +35,7 @@ public class LibraryTestSuite {
 
         try {
             library3 = library1.deepCopy();
-            library3.name = new String("Moja perfekcyjna bibloteczka 3");
+            library3.name = "Moja perfekcyjna bibloteczka 3";
         }
         catch(CloneNotSupportedException o){
             o.printStackTrace();
