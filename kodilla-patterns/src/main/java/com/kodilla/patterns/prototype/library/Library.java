@@ -15,7 +15,7 @@ public final class Library extends Prototype {
         return name;
     }
 
-    public Set<Book> getBooks() {
+    public Set<Book> getBooks(){
         return books;
     }
 
