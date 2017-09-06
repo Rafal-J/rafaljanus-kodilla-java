@@ -1,29 +1,27 @@
 package com.kodilla.patterns.factory.tasks;
 
-public class ShoppingTask implements Task{
+public class DrivingTask implements Task{
     private String taskName;
-    private String whatToBuy;
-    private double quantity;
+    private String where;
+    private String using;
     private boolean isExecuted = false;
 
-    public ShoppingTask(String taskName, String whatToBuy, double quantity) {
+    public DrivingTask (String taskName, String where, String using) {
         this.taskName = taskName;
-        this.whatToBuy = whatToBuy;
-        this.quantity = quantity;
+        this.where = where;
+        this.using = using;
     }
 
-    public void executeTask(){
+    public void executeTask() {
         System.out.println("Następujące zadanie " + taskName + " jest w trakcie realizacji...");
         isExecuted = true;
     }
 
-    public String getTaskName(){
+    public String getTaskName() {
         return taskName;
     }
 
-    public boolean isTaskExecuted(){
+    public boolean isTaskExecuted() {
         return isExecuted;
     }
-
-
 }
