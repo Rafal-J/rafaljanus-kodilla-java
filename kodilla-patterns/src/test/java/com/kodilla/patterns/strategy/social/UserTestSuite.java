@@ -1,6 +1,7 @@
 package com.kodilla.patterns.strategy.social;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class UserTestSuite {
@@ -19,6 +20,10 @@ public class UserTestSuite {
         millenial.getSocialPublisher().share(millenial.getUserName());
         yGen.getSocialPublisher().share(yGen.getUserName());
         zGen.getSocialPublisher().share(zGen.getUserName());
+
+        Assert.assertEquals("FacebookPublisher",millenial.getSocialPublisher().getClass().getSimpleName());
+        Assert.assertEquals("SnapchatPublisher",yGen.getSocialPublisher().getClass().getSimpleName());
+        Assert.assertTrue(zGen.getSocialPublisher().getClass().getSimpleName().equals("TwitterPublisher"));
     }
 
     @Test
@@ -34,5 +39,9 @@ public class UserTestSuite {
         millenial.getSocialPublisher().share(millenial.getUserName());
         yGen.getSocialPublisher().share(yGen.getUserName());
         zGen.getSocialPublisher().share(zGen.getUserName());
+
+        Assert.assertEquals("SnapchatPublisher",millenial.getSocialPublisher().getClass().getSimpleName());
+        Assert.assertEquals("TwitterPublisher",yGen.getSocialPublisher().getClass().getSimpleName());
+        Assert.assertTrue(zGen.getSocialPublisher().getClass().getSimpleName().equals("FacebookPublisher"));
     }
 }
