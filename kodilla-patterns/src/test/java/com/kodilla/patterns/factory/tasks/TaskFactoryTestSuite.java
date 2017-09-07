@@ -7,8 +7,7 @@ public class TaskFactoryTestSuite {
 
     @Test
     public void drivingTaskTest() {
-        TaskFactory taskFactory = new TaskFactory();
-        Task drivingTask = taskFactory.generatingTask(taskFactory.DRIVING);
+        Task drivingTask = TaskFactory.generatingTask(TaskFactory.DRIVING);
 
         String taskName = drivingTask.getTaskName();
         Assert.assertEquals("Zawieźć meble", taskName);
@@ -16,16 +15,14 @@ public class TaskFactoryTestSuite {
 
     @Test
     public void paintingTaskTest() {
-        TaskFactory taskFactory = new TaskFactory();
-        Task paintingTask = taskFactory.generatingTask(taskFactory.PAINTING);
+        Task paintingTask = TaskFactory.generatingTask(TaskFactory.PAINTING);
 
         Assert.assertTrue(paintingTask.getTaskName().equals("Obraz na zamówienie"));
     }
 
     @Test
     public void shoppingTaskTest() {
-        TaskFactory taskFactory = new TaskFactory();
-        Task shoppingTask = taskFactory.generatingTask(taskFactory.SHOPPING);
+        Task shoppingTask = TaskFactory.generatingTask(TaskFactory.SHOPPING);
 
         Assert.assertTrue(shoppingTask.getTaskName().equals("Zakupy dla mamy"));
     }
