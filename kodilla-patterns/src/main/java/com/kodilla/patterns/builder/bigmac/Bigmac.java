@@ -4,26 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bigmac {
-    private final String roll;
+    private BigmacRoll roll;
     private final int burgers;
-    private final String sauce;
-    private final List<String> ingredients;
+    private BigmacSauces sauce;
+    private List<BigmacIngredients> ingredients;
 
     public static class BigmacBuilder {
-        private String roll;
+        private BigmacRoll roll;
         private int burgers;
-        private String sauce;
-        private List<String> ingredients = new ArrayList<String>();
+        private BigmacSauces sauce;
+        private List<BigmacIngredients> ingredients = new ArrayList<>();
 
-        public BigmacBuilder roll(String roll) {
-            for(BigmacRoll testRoll: BigmacRoll.values()) {
-                if(testRoll.toString().equals(roll)) {
-                    this.roll = roll;
-                    return this;
-                }
-            }
-            throw new IllegalStateException("Ten rodzaj bułki jest niedostępny");
+        public BigmacBuilder roll(BigmacRoll roll) {
+            this.roll = roll;
+            return this;
         }
+
 
         public BigmacBuilder burgers(int burgers) {
             if(burgers > 0 && burgers%1 == 0) {
@@ -35,24 +31,14 @@ public class Bigmac {
             }
         }
 
-        public BigmacBuilder sauce(String sauce) {
-            for(BigmacSauces testSauce: BigmacSauces.values()) {
-                if(testSauce.toString().equals(sauce)) {
-                    this.sauce = sauce;
-                    return this;
-                }
-            }
-            throw new IllegalStateException("Ten sos jest niedostępny");
+        public BigmacBuilder sauce(BigmacSauces sauce) {
+            this.sauce = sauce;
+            return this;
         }
 
-        public BigmacBuilder ingredient(String ingredient) {
-            for(BigmacIngredients testIngredient: BigmacIngredients.values()) {
-                if(testIngredient.toString().equals(ingredient)) {
-                    this.ingredients.add(ingredient);
-                    return this;
-                }
-            }
-            throw new IllegalStateException("Ten składnik jest niedostępny");
+        public BigmacBuilder ingredient(BigmacIngredients ingredient) {
+            this.ingredients.add(ingredient);
+            return this;
         }
 
         public Bigmac build() {
@@ -60,14 +46,14 @@ public class Bigmac {
         }
     }
 
-    private Bigmac(String roll, int burgers, String sauce, List<String> ingredients) {
+    private Bigmac(BigmacRoll roll, int burgers, BigmacSauces sauce, List<BigmacIngredients> ingredients) {
         this.roll = roll;
         this.burgers = burgers;
         this.sauce = sauce;
         this.ingredients = ingredients;
     }
 
-    public String getRoll() {
+    public BigmacRoll getRoll() {
         return roll;
     }
 
@@ -75,11 +61,11 @@ public class Bigmac {
         return burgers;
     }
 
-    public String getSauce() {
+    public BigmacSauces getSauce() {
         return sauce;
     }
 
-    public List<String> getIngredients() {
+    public List<BigmacIngredients> getIngredients() {
         return ingredients;
     }
 

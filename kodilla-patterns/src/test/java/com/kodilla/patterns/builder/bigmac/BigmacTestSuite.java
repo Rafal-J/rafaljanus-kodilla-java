@@ -8,13 +8,13 @@ public class BigmacTestSuite {
     @Test
     public void bigmacTest() {
         Bigmac myBigmac = new Bigmac.BigmacBuilder()
-                .sauce("barbecue")
+                .sauce(BigmacSauces.tysiąc_wysp)
                 .burgers(5)
-                .roll("bez_sezamu")
-                .ingredient("sałata")
-                .ingredient("cebula")
-                .ingredient("bekon")
-                .ingredient("ogórek")
+                .roll(BigmacRoll.bez_sezamu)
+                .ingredient(BigmacIngredients.bekon)
+                .ingredient(BigmacIngredients.krewetki)
+                .ingredient(BigmacIngredients.cebula)
+                .ingredient(BigmacIngredients.papryczki_chilli)
                 .build();
 
         System.out.println(myBigmac);
@@ -23,6 +23,6 @@ public class BigmacTestSuite {
 
         Assert.assertEquals(4, numberOfIngredients);
         Assert.assertTrue(myBigmac.getBurgers() == 5);
-        Assert.assertTrue(myBigmac.getRoll().equals("bez_sezamu"));
+        Assert.assertTrue(myBigmac.getRoll().toString().equals("bez_sezamu"));
     }
 }
