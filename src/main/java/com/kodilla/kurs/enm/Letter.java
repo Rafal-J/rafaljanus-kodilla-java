@@ -1,6 +1,6 @@
-package com.kodilla.patterns.builder.bigmac;
+package com.kodilla.kurs.enm;
 
-public enum BigmacIngredients {
+public enum Letter {
     sałata,
     cebula,
     bekon,

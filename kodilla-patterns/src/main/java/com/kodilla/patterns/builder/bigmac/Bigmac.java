@@ -16,14 +16,13 @@ public class Bigmac {
         private List<String> ingredients = new ArrayList<String>();
 
         public BigmacBuilder roll(String roll) {
-            if(BigmacIngredients.getRoll().contains(roll)) {
-                this.roll = roll;
-                return this;
+            for(BigmacRoll testRoll: BigmacRoll.values()) {
+                if(testRoll.toString().equals(roll)) {
+                    this.roll = roll;
+                    return this;
+                }
             }
-            else {
-                throw new IllegalStateException("Ten rodzaj bułki jest niedostępny");
-            }
-
+            throw new IllegalStateException("Ten rodzaj bułki jest niedostępny");
         }
 
         public BigmacBuilder burgers(int burgers) {
@@ -34,28 +33,26 @@ public class Bigmac {
             else {
                 throw new IllegalStateException("Liczba zamówionych kotletów musi być liczbą naturalnę większą od zera");
             }
-
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if(BigmacIngredients.getSauce().contains(sauce)) {
-                this.sauce = sauce;
-                return this;
+            for(BigmacSauces testSauce: BigmacSauces.values()) {
+                if(testSauce.toString().equals(sauce)) {
+                    this.sauce = sauce;
+                    return this;
+                }
             }
-            else {
-                throw new IllegalStateException("Ten sos jest niedostępny");
-            }
-
+            throw new IllegalStateException("Ten sos jest niedostępny");
         }
 
         public BigmacBuilder ingredient(String ingredient) {
-            if(BigmacIngredients.getIngredients().contains(ingredient)) {
-                this.ingredients.add(ingredient);
-                return this;
+            for(BigmacIngredients testIngredient: BigmacIngredients.values()) {
+                if(testIngredient.toString().equals(ingredient)) {
+                    this.ingredients.add(ingredient);
+                    return this;
+                }
             }
-            else {
-                throw new IllegalStateException("Ten składnik jest niedostępny");
-            }
+            throw new IllegalStateException("Ten składnik jest niedostępny");
         }
 
         public Bigmac build() {

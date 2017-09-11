@@ -10,7 +10,7 @@ public class BigmacTestSuite {
         Bigmac myBigmac = new Bigmac.BigmacBuilder()
                 .sauce("barbecue")
                 .burgers(5)
-                .roll("bez sezamu")
+                .roll("bez_sezamu")
                 .ingredient("sałata")
                 .ingredient("cebula")
                 .ingredient("bekon")
@@ -23,6 +23,6 @@ public class BigmacTestSuite {
 
         Assert.assertEquals(4, numberOfIngredients);
         Assert.assertTrue(myBigmac.getBurgers() == 5);
-        Assert.assertTrue(myBigmac.getRoll().equals("bez sezamu"));
+        Assert.assertTrue(myBigmac.getRoll().equals("bez_sezamu"));
     }
 }
