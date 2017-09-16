@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbManagerTestSuite {
     @Test
@@ -54,14 +56,22 @@ public class DbManagerTestSuite {
 
         int count = 0;
 
+        List<UserProfile> userProfiles = new ArrayList<>();
+
         while(sqlQueuryResult.next()){
             System.out.println(sqlQueuryResult.getString("FIRSTNAME") + " " +
                     sqlQueuryResult.getString("LASTNAME") + " " +
                     sqlQueuryResult.getInt("LICZBA_POSTÓW"));
+
+            userProfiles.add(new UserProfile(sqlQueuryResult.getString("FIRSTNAME"),
+                    sqlQueuryResult.getString("LASTNAME"),
+                    sqlQueuryResult.getInt("LICZBA_POSTÓW")));
             count++;
         }
 
-        Assert.assertTrue(count == 2);
+        System.out.println(userProfiles.get(0).getLastName());
 
+        Assert.assertTrue(count == 2);
+        Assert.assertTrue(userProfiles.size() == 2);
     }
 }
