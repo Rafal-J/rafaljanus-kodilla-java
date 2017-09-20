@@ -11,9 +11,14 @@ public class Item {
     private Invoice invoice;
     private BigDecimal price;
     private int quantity;
+    @Transient
     private BigDecimal value;
 
-    public Item(Product product, BigDecimal price, int quantity, Invoice invoice) {
+    public Item() {
+
+    }
+
+    public Item(Product product, BigDecimal price, int quantity,Invoice invoice) {
         this.product = product;
         this.price = price;
         this.quantity = quantity;
@@ -33,8 +38,9 @@ public class Item {
         this.id = id;
     }
 
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
@@ -43,8 +49,9 @@ public class Item {
         this.product = product;
     }
 
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }

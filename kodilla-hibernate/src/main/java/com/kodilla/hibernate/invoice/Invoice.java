@@ -5,12 +5,14 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(name = "INVOICES")
 public class Invoice {
+
     private int id;
     private String number;
-    List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
-    public Invoice() {
+   public Invoice() {
 
     }
 
@@ -31,7 +33,7 @@ public class Invoice {
     }
 
     @NotNull
-    @Column(name = "NUMBER", unique = true)
+    @Column(name = "NUMBER")
     public String getNumber() {
         return number;
     }
