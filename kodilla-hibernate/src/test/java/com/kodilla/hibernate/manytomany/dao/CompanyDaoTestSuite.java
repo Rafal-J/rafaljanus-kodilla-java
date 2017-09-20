@@ -9,22 +9,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
-    @Test
-    public void testSaveManyToMany(){
-        //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+    private Company softwareMachine;
+    private Company dataMaesters;
+    private Company greyMatter;
 
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-        Company greyMatter = new Company("Grey Matter");
+    private Employee johnSmith;
+    private Employee stephanieClarckson;
+    private Employee lindaKovalsky;
+
+    public CompanyDaoTestSuite() {
+        johnSmith = new Employee("John", "Smith");
+        stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        softwareMachine = new Company("Software Machine");
+        dataMaesters = new Company("Data Maesters");
+        greyMatter = new Company("Grey Matter");
 
         softwareMachine.getEmployees().add(johnSmith);
         dataMaesters.getEmployees().add(stephanieClarckson);
@@ -37,7 +47,10 @@ public class CompanyDaoTestSuite {
         stephanieClarckson.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
+    }
 
+    @Test
+    public void testSaveManyToMany(){
         //When
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
@@ -51,13 +64,31 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
+
         //CleanUp
-               //try {
-            //    companyDao.delete(softwareMachineId);
-            //    companyDao.delete(dataMaestersId);
-            //    companyDao.delete(greyMatterId);
-            //} catch (Exception e) {
-            //    //do nothing
-            //}
+               try {
+                   companyDao.deleteAll();
+            } catch (Exception e) {
+                //do nothing
+            }
+    }
+
+    @Test
+    public void testNamedQueries() {
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+
+        List<Company> companies = companyDao.firstThreeLettersOfName("Dat");
+        Assert.assertTrue(companies.size() == 1);
+
+        List<Employee> employees = employeeDao.employeeWithCertainLastname("Smith");
+        Assert.assertTrue(employees.size() == 1);
+
+        try {
+            companyDao.deleteAll();
+        } catch (Exception e) {
+            //do nothing
         }
     }
+}
