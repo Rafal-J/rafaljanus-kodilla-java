@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
-    private int id;
+    private Integer id;
     private String firstname;
     private String lastname;
     private List<Company> companies = new ArrayList<>();
@@ -28,9 +28,8 @@ public class Employee {
 
     @Id
     @GeneratedValue
-    @NotNull
     @Column(name = "EMPLOYEE_ID", unique = true)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -46,7 +45,7 @@ public class Employee {
         return lastname;
     }
 
-    private void setId(int id) {
+    private void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,7 +57,7 @@ public class Employee {
         this.lastname = lastname;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},

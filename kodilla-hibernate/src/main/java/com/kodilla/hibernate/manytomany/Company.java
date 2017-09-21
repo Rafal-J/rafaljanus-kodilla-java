@@ -1,7 +1,6 @@
 package com.kodilla.hibernate.manytomany;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
-    private int id;
+    private Integer id;
     private String name;
     private List<Employee> employees = new ArrayList<>();
     public Company() {
@@ -25,19 +24,17 @@ public class Company {
 
     @Id
     @GeneratedValue
-    @NotNull
     @Column(name = "COMPANY_ID", unique = true)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    @NotNull
     @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;
     }
 
-    private void setId(int id) {
+    private void setId(Integer id) {
         this.id = id;
     }
 

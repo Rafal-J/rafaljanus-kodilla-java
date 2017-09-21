@@ -50,26 +50,6 @@ public class CompanyDaoTestSuite2 {
     }
 
     @Test
-    public void testSaveManyToMany(){
-        //When
-        companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
-        companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
-        companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
-
-        //Then
-        Assert.assertNotEquals(0, softwareMachineId);
-        Assert.assertNotEquals(0, dataMaestersId);
-        Assert.assertNotEquals(0, greyMatterId);
-
-        companyDao.delete(softwareMachineId);
-        companyDao.delete(dataMaestersId);
-        companyDao.delete(greyMatterId);
-    }
-
-    @Test
     public void testNamedQueries() {
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
@@ -85,7 +65,23 @@ public class CompanyDaoTestSuite2 {
         Assert.assertTrue(employees.size() == 1);
 
         companyDao.delete(softwareMachineId);
-        companyDao.delete(dataMaestersId);
-        companyDao.delete(greyMatterId);
+    }
+
+    @Test
+    public void testSaveManyToMany(){
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
+        //Then
+        Assert.assertNotEquals(0, softwareMachineId);
+        Assert.assertNotEquals(0, dataMaestersId);
+        Assert.assertNotEquals(0, greyMatterId);
+
+        companyDao.delete(softwareMachineId);
     }
 }
