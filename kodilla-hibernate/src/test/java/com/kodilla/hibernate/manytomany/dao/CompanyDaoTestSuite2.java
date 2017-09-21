@@ -13,7 +13,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CompanyDaoTestSuite {
+public class CompanyDaoTestSuite2 {
     @Autowired
     CompanyDao companyDao;
     @Autowired
@@ -27,7 +27,7 @@ public class CompanyDaoTestSuite {
     private Employee stephanieClarckson;
     private Employee lindaKovalsky;
 
-    public CompanyDaoTestSuite() {
+    public CompanyDaoTestSuite2() {
         johnSmith = new Employee("John", "Smith");
         stephanieClarckson = new Employee("Stephanie", "Clarckson");
         lindaKovalsky = new Employee("Linda", "Kovalsky");
@@ -64,16 +64,19 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
-        companyDao.delete(softwareMachine);
-        companyDao.delete(dataMaesters);
-        companyDao.delete(greyMatter);
+        companyDao.delete(softwareMachineId);
+        companyDao.delete(dataMaestersId);
+        companyDao.delete(greyMatterId);
     }
 
     @Test
     public void testNamedQueries() {
         companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
 
         List<Company> companies = companyDao.firstThreeLettersOfName("Dat");
         Assert.assertTrue(companies.size() == 1);
@@ -81,8 +84,8 @@ public class CompanyDaoTestSuite {
         List<Employee> employees = employeeDao.employeeWithCertainLastname("Smith");
         Assert.assertTrue(employees.size() == 1);
 
-        companyDao.delete(softwareMachine);
-        companyDao.delete(dataMaesters);
-        companyDao.delete(greyMatter);
+        companyDao.delete(softwareMachineId);
+        companyDao.delete(dataMaestersId);
+        companyDao.delete(greyMatterId);
     }
 }
