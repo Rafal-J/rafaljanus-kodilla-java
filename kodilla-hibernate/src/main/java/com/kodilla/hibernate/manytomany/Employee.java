@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.manytomany;
 
+import org.hibernate.annotations.SQLDelete;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -9,6 +11,13 @@ import java.util.List;
         name = "Employee.employeeWithCertainLastname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+
+@NamedNativeQuery(
+        name = "Employee.deleteFromJoinTable",
+        query = "DELETE FROM JOIN_COMPANY_EMPLOYEE"
+)
+
+
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -57,7 +66,7 @@ public class Employee {
         this.lastname = lastname;
     }
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade={CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},

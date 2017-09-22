@@ -15,4 +15,7 @@ public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
     @Query
     List<Employee> employeeWithCertainLastname(@Param("LASTNAME") String lastname);
+
+    @Query(nativeQuery = true)
+    void deleteFromJoinTable();
 }
