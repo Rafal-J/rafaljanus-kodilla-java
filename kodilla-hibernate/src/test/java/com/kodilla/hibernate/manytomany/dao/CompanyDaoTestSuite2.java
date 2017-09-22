@@ -2,6 +2,8 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +20,8 @@ public class CompanyDaoTestSuite2 {
     CompanyDao companyDao;
     @Autowired
     EmployeeDao employeeDao;
+    @Autowired
+    private SessionFactory sessionFactory;
 
     private Company softwareMachine;
     private Company dataMaesters;
@@ -50,24 +54,6 @@ public class CompanyDaoTestSuite2 {
     }
 
     @Test
-    public void testNamedQueries() {
-        companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
-        companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
-        companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
-
-        List<Company> companies = companyDao.firstThreeLettersOfName("Dat");
-        Assert.assertTrue(companies.size() == 1);
-
-        List<Employee> employees = employeeDao.employeeWithCertainLastname("Smith");
-        Assert.assertTrue(employees.size() == 1);
-
-        companyDao.delete(softwareMachineId);
-    }
-
-    @Test
     public void testSaveManyToMany(){
         //When
         companyDao.save(softwareMachine);
@@ -82,6 +68,32 @@ public class CompanyDaoTestSuite2 {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
-        companyDao.delete(softwareMachineId);
+        //employeeDao.deleteFromJoinTable();
+
+        //companyDao.delete(softwareMachine);
+        //companyDao.delete(dataMaesters);
+        //companyDao.delete(greyMatter);
+
+        Session session = sessionFactory.openSession();
+        session.createSQLQuery("DELETE FROM join_company_employee").executeUpdate();
+        employeeDao.deleteAll();
+        companyDao.deleteAll();
+    }
+
+    @Test
+    public void testNamedQueries() {
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+
+        List<Company> companies = companyDao.firstThreeLettersOfName("Dat");
+        Assert.assertTrue(companies.size() == 1);
+
+        List<Employee> employees = employeeDao.employeeWithCertainLastname("Smith");
+        Assert.assertTrue(employees.size() == 1);
+
+        companyDao.delete(softwareMachine);
+        companyDao.delete(dataMaesters);
+        companyDao.delete(greyMatter);
     }
 }
