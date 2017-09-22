@@ -68,12 +68,6 @@ public class CompanyDaoTestSuite2 {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
-        //employeeDao.deleteFromJoinTable();
-
-        //companyDao.delete(softwareMachine);
-        //companyDao.delete(dataMaesters);
-        //companyDao.delete(greyMatter);
-
         Session session = sessionFactory.openSession();
         session.createSQLQuery("DELETE FROM join_company_employee").executeUpdate();
         employeeDao.deleteAll();
