@@ -64,7 +64,8 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
-        employeeDao.deleteFromJoinTable();
+        employeeDao.deleteAll();
+        companyDao.deleteAll();
     }
 
     @Test
