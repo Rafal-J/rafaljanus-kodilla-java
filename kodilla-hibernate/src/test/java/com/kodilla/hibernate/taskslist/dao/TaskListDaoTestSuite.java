@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.taskslist.dao;
+/*package com.kodilla.hibernate.taskslist.dao;
 
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
@@ -111,4 +111,4 @@ public class TaskListDaoTestSuite {
             tasksListDao.delete(id);
         }
     }
-}
+}*/

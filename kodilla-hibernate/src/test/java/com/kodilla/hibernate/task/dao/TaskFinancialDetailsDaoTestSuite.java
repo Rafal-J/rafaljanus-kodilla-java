@@ -1,3 +1,4 @@
+/*
 package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.TaskFinancialDetails;
@@ -13,6 +14,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TaskFinancialDetailsDaoTestSuite {
+
     @Autowired
     TaskFinancialDetailsDao taskFinancialDetailsDao;
 
@@ -33,4 +35,4 @@ public class TaskFinancialDetailsDaoTestSuite {
         //CleanUp
         taskFinancialDetailsDao.delete(id);
     }
-}
+}*/
