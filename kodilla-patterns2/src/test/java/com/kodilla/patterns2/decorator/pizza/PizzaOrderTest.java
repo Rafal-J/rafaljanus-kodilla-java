@@ -11,33 +11,29 @@ import java.math.BigDecimal;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-
 public class PizzaOrderTest {
-    @Autowired
-    private PizzaIngredientsPriceList priceList;
 
     @Test
-    public void priceTest() {
-        BigDecimal price = priceList.getIngredients().get("szynka");
-
-        Assert.assertEquals(new BigDecimal(4), price);
-    }
-
-    @Test
-    public void getPrice() {
+    public void getPriceTest() {
         PizzaOrder pizzaOrder = new PizzaMargherita();
         pizzaOrder = new PizzaMargheritaDecorator(pizzaOrder, "szynka");
+        pizzaOrder = new PizzaMargheritaDecorator(pizzaOrder, "pieczarki");
+        pizzaOrder = new PizzaMargheritaDecorator(pizzaOrder, "oliwki");
 
         BigDecimal price = pizzaOrder.getPrice();
 
-        Assert.assertEquals(new BigDecimal(20), price);
+        Assert.assertEquals(new BigDecimal(28.5), price);
     }
 
-    /*
     @Test
-    public void getIngredients() {
-    } */
+    public void getIngredientsTest() {
+        PizzaOrder pizzaOrder = new PizzaMargherita();
+        pizzaOrder = new PizzaMargheritaDecorator(pizzaOrder, "szynka");
+        pizzaOrder = new PizzaMargheritaDecorator(pizzaOrder, "czosnek");
+        pizzaOrder = new PizzaMargheritaDecorator(pizzaOrder, "papryka");
 
+        String ingredients = pizzaOrder.getIngredients();
+
+        Assert.assertEquals("Pizza Margherita (ciasto, sos pomidorowy i ser) + szynka + czosnek + papryka", ingredients);
+    }
 }

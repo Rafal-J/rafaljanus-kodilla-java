@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-public abstract class AbstractPizzaMargheritaOrder implements PizzaOrder {
+public abstract class AbstractPizzaMargheritaOrderDecorator implements PizzaOrder {
     public final PizzaOrder pizzaOrder;
     String ingredient;
 
-    public AbstractPizzaMargheritaOrder(PizzaOrder pizzaOrder) {
+    public AbstractPizzaMargheritaOrderDecorator(PizzaOrder pizzaOrder) {
         this.pizzaOrder = pizzaOrder;
     }
 

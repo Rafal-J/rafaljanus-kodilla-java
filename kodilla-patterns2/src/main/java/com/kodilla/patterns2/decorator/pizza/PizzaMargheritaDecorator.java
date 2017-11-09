@@ -1,25 +1,11 @@
 package com.kodilla.patterns2.decorator.pizza;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
+import java.util.HashMap;
 
-@Component
-public class PizzaMargheritaDecorator extends AbstractPizzaMargheritaOrder {
+public class PizzaMargheritaDecorator extends AbstractPizzaMargheritaOrderDecorator {
     String ingredient;
-
-    @Autowired
-    private PizzaIngredientsPriceList pizzaIngredientsPriceList;
-
-    @Autowired(required=true)
-    public PizzaMargheritaDecorator(PizzaOrder pizzaOrder) {
-        super(pizzaOrder);
-    }
+    HashMap<String, BigDecimal> pizzaIngredientsPriceList = new PizzaIngredientsPriceList().getIngredientsPriceList();
 
     public PizzaMargheritaDecorator(PizzaOrder pizzaOrder, String ingredient) {
         super(pizzaOrder);
@@ -28,11 +14,11 @@ public class PizzaMargheritaDecorator extends AbstractPizzaMargheritaOrder {
 
     @Override
     public BigDecimal getPrice() {
-        return pizzaOrder.getPrice().add(pizzaIngredientsPriceList.getIngredients().get(ingredient));
+        return pizzaOrder.getPrice().add(pizzaIngredientsPriceList.get(ingredient));
     }
 
     @Override
     public String getIngredients() {
-        return super.getIngredients();
+        return pizzaOrder.getIngredients() + " + " + ingredient;
         }
 }
