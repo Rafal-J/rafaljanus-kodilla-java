@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 public abstract class AbstractPizzaMargheritaOrder implements PizzaOrder {
-    private final PizzaOrder pizzaOrder;
+    public final PizzaOrder pizzaOrder;
     String ingredient;
 
     public AbstractPizzaMargheritaOrder(PizzaOrder pizzaOrder) {

@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 
 @Component
 public class PizzaMargheritaDecorator extends AbstractPizzaMargheritaOrder {
-    private PizzaOrder pizzaOrder;
     String ingredient;
 
     @Autowired
