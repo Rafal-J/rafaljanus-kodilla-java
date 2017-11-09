@@ -70,8 +70,6 @@ public class EmployeeSearchFacade {
 
         List<Employee> employeesLike = employeeDao.employeeWithNameLike("%s%");
 
-
-
         return employeesLike;
     }
 
