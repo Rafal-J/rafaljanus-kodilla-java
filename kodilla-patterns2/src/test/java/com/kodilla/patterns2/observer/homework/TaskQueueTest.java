@@ -69,10 +69,10 @@ public class TaskQueueTest {
 
         //when
         userRafalR.addTask("Moduł 12.3");
+        userWandaW.addTask("Moduł 11.1");
         userRafalR.addTask("Moduł 12.4");
         userRafalR.addTask("Moduł 12.5");
 
-        userWandaW.addTask("Moduł 11.1");
 
         userBozenaB.addTask("Moduł 12.1");
         userBozenaB.addTask("Moduł 12.2");

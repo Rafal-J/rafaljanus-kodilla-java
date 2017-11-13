@@ -18,20 +18,20 @@ public class Mentor implements Observer {
     }
 
     public String check() {
-        List<Observer> observers = tasksToCheck.poll().getObservers();
+        List<Observer> observers = tasksToCheck.peek().getObservers();
         TaskQueue queueToCheck;
-        int count = 1;
+        boolean test = true;
         String taskToCheck = "";
 
         for(Observer observer : observers) {
             queueToCheck = observer.getTasksToCheck().poll();
-            if(count == 1) {
-                count++;
+            if(test == true) {
+                System.out.println("Usuwanie zadania z kolejki");
                 taskToCheck = queueToCheck.getTaskQueue().poll();
+                test = false;
             }
-            return taskToCheck;
         }
-        return "Brak zadań";
+        return taskToCheck;
     }
 
     @Override
