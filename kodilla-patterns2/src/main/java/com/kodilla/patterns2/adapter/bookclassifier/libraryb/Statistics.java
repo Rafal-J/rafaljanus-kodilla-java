@@ -13,13 +13,7 @@ public class Statistics implements  BookStatistics {
     public int averagePublicationYear(Map<BookSignature, Book> books) {
         if (books.size() == 0) return 0;
 
-        List<Integer> yearsOfPublication = books.entrySet().stream()
-                .map(c -> c.getValue().getYearOfPublication())
-                .collect(Collectors.toList());
-
-        return IntStream.range(0,yearsOfPublication.size())
-                .map(c -> yearsOfPublication.get(c))
-                .sum() / yearsOfPublication.size();
+        return books.entrySet().stream().mapToInt(c -> c.getValue().getYearOfPublication()).sum() / books.size();
     }
 
     @Override
